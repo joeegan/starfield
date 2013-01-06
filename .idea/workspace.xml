@@ -19,19 +19,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="main.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="main.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="134" column="36" selection-start="3891" selection-end="3891" vertical-scroll-proportion="-28.307692">
+            <state line="134" column="36" selection-start="3891" selection-end="3891" vertical-scroll-proportion="1.1271057">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name=".gitignore" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name=".gitignore" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1" column="0" selection-start="8" selection-end="8" vertical-scroll-proportion="0.023564065">
+            <state line="1" column="0" selection-start="8" selection-end="8" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -280,16 +280,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/main.js">
+    <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="134" column="36" selection-start="3891" selection-end="3891" vertical-scroll-proportion="-28.307692">
+        <state line="1" column="0" selection-start="8" selection-end="8" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
+    <entry file="file://$PROJECT_DIR$/js/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="0" selection-start="8" selection-end="8" vertical-scroll-proportion="0.023564065">
+        <state line="134" column="36" selection-start="3891" selection-end="3891" vertical-scroll-proportion="1.1271057">
           <folding />
         </state>
       </provider>
