@@ -25,6 +25,15 @@ window.requestAnimFrame = (function(){
    var lastMousePosition = {};
    var xMultiplier = 0;
    var yMultiplier = 0;
+   var starSpeedIncrease = false;
+   var starSpeedDecrease = false;
+   var starSpeedMax = 25;
+   var starSpeedMultiplier = 0;
+   var starSpeedPauseCount = 0;
+   var starSpeedPauseLimit = 25;
+
+   var hangbackCount = 0;
+   var hangbackLimit = 5;
 
    prepareCanvas();
    setup();
@@ -68,6 +77,28 @@ window.requestAnimFrame = (function(){
       }
    }
 
+   function checkPosNeg(){
+      if (starSpeed <= 0) {
+          isPositive = false;
+      } else {
+         isPositive = true;
+      }
+   }
+
+   function handleMouseClick() {
+      hangbackCount = 0;
+      if (!starSpeedIncrease) {
+         starSpeedIncrease = true;
+      } else {
+         starSpeedDecrease = true;
+      }
+
+      if (isPositive && starSpeedIncrease && starSpeed < starSpeedMax) {
+         starSpeedMultiplier += 1;
+      }
+
+   }
+
    function handleMouseMove(event){
       if (typeof(lastMousePosition.x) != 'undefined') {
           var deltaX = lastMousePosition.x - event.offsetX,
@@ -106,6 +137,16 @@ window.requestAnimFrame = (function(){
    }
 
    function draw() {
+
+      if (starSpeedIncrease && (hangbackCount < hangbackLimit) && starSpeed !== starSpeedMax) {
+         hangbackCount++;
+         starSpeed -= hangbackCount;
+      } else if (starSpeedIncrease && (hangbackCount == hangbackLimit) && (starSpeedPauseCount < starSpeedPauseLimit)) {
+         starSpeed = 0.5;
+         starSpeedPauseCount++;
+      } else if (starSpeedIncrease && starSpeedPauseCount >= starSpeedPauseLimit) {
+         starSpeed = starSpeedMax;
+      }
 
       context.fillStyle = 'rgb(000,000,000)';
       context.fillRect(0, 0, canvasW, canvasH);
@@ -154,9 +195,11 @@ window.requestAnimFrame = (function(){
          canvas.addEventListener( 'DOMMouseScroll', handleMouseScroll, false ); // Firefox
          canvas.addEventListener( 'mousemove', handleMouseMove, false );
          canvas.addEventListener( 'DOMMouseMove', handleMouseScroll, false );
+         canvas.addEventListener( 'mousedown', handleMouseClick, false );
       } else if (canvas.attachEvent){
          canvas.attachEvent('onmousewheel',handleMouseScroll); // IE
          canvas.attachEvent('onmousemove', handleMouseMove);
+         canvas.attachEvent('onmousedown', handleMouseClick);
       }
 
    }
